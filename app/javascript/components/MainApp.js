@@ -1,5 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
+import { BrowserRouter, Route, Link} from 'react-router-dom'
+import ApartmentList from './AppartmentList'
 
 
 class MainApp extends React.Component {
@@ -12,8 +14,11 @@ class MainApp extends React.Component {
 
     return (
       <React.Fragment>
+      <BrowserRouter>
         {logged_in &&
           <div>
+          <Route path="/apartment">
+          </Route>
             <a href={sign_out_route}>Sign Out</a>
           </div>
         }
@@ -22,6 +27,7 @@ class MainApp extends React.Component {
             <a href={sign_in_route}>Sign In</a>
           </div>
         }
+        </BrowserRouter>
       </React.Fragment>
     );
   }
