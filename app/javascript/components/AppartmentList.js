@@ -12,7 +12,8 @@ class AppartmentList extends React.Component {
     this.getApartments()
   }
 
-  getApartments()=>{
+  getApartments=()=>{
+    /* global fetch */
     fetch("/apartments")
     .then((response)=> {
       if(response.status === 200){
@@ -20,7 +21,9 @@ class AppartmentList extends React.Component {
       }
     })
     .then((apartments)=>
-      this.setstate({apartments}))
+      this.setstate({apartments})
+    )
+    .catch(error => console.log(error))
   }
 
   render () {
